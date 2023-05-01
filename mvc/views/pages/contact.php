@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-6"><img src="./public/img/contact/bando.jpg" alt="" style="width: 100%;"></div>
         <div class="col-md-6">
-            <h1>LIÊN HỆ CHÚNG TÔI</h1>
+            <h1 class="">LIÊN HỆ CHÚNG TÔI</h1>
             <small>Để liên hệ và nhận các thông tin khuyến mãi sớm nhất, Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất</small>
             <form action="">
                 <div class="form-group">
