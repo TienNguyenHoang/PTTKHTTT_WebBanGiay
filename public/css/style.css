@@ -1,9 +1,13 @@
 /* Header */
 
+h3 {
+    color: red;
+}
+
 #header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 #header-list {
@@ -82,7 +86,7 @@ div.product {
 
 /* Căn chỉnh vị trí sản phẩm */
 
-div.product>li {
+div.product>a {
     flex-basis: calc(100% / 4 - 30px);
     display: block;
     margin: 15px;
@@ -93,7 +97,7 @@ div.product>li {
 
 /* Thiết kế khung sản phẩm */
 
-div.product>li div.product-item {
+div.product>a div.product-item {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 13px -1px;
@@ -102,7 +106,7 @@ div.product>li div.product-item {
 
 /* Ảnh sản phẩm */
 
-div.product>li img {
+div.product>a img {
     width: 100%;
     height: auto;
     left: 1px;
@@ -111,7 +115,7 @@ div.product>li img {
 
 /* Tên sản phẩm */
 
-div.product>li div.product-info a {
+div.product>a div.product-info a {
     text-decoration: none;
     color: #ff0067;
     font-size: 20px;
@@ -120,7 +124,7 @@ div.product>li div.product-info a {
 
 /* Thiết kế khung giá tiền */
 
-div.product>li div.product-info div.product-price {
+div.product>a div.product-info div.product-price {
     background-color: #ff0000;
     padding: 5px;
     color: white;
@@ -130,7 +134,7 @@ div.product>li div.product-info div.product-price {
 
 /* Hiệu ứng khung sản phẩm */
 
-div.product>li div.product-item:hover {
+div.product>a div.product-item:hover {
     transform: scale(1.05);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
@@ -145,4 +149,29 @@ div.product>li div.product-item:hover {
 .home-news-heading:hover {
     color: red;
     cursor: pointer;
+}
+
+
+/* trang product */
+
+.list-group-item.active {
+    background-color: #ffffff;
+    color: red;
+}
+
+.list-group-item:active {
+    border: none;
+    background-color: #ffffff;
+    color: red;
+}
+
+.list-group-item:hover {
+    color: red;
+}
+
+.list-group-item.active::before {
+    content: '▶';
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 5px;
 }

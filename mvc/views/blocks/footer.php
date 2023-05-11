@@ -1,7 +1,7 @@
-<div class="container-fluid" id="footer">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <img src="./public/img/logo/logoShop.png" alt="" width="100%">
+            <img src="/WebBanGiay_PTTKHTTT/public/img/logo/logoShop.png" alt="" width="100%">
         </div>
         <div class="col-md-3">
             <h3>Thông Tin Liên Hệ</h3>
