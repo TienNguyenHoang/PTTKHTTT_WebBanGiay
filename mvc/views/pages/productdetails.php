@@ -21,7 +21,12 @@
                         <span style="color: #ccc;font-size: 15px;">Đã Bán</span>
                     </div>
                 </div>
-                <div class="row" style="background-color: #f7f9fa;color: #f26202;font-size: 30px; margin-left: 3px;margin-top: 40px;padding: 10px;padding-left: 100px;"><?php echo $data['product'][0]['Gia']?></div>
+                <div class="row" style="background-color: #f7f9fa;color: #f26202;font-size: 30px; margin-left: 3px;margin-top: 40px;padding: 10px;padding-left: 100px;">
+                    <?php
+                        $money = number_format($data['product'][0]['Gia'], 0, ',', '.');
+                        echo $money."<small style='margin-left:3px'>đ</small>";
+                    ?>
+                </div>
                 <div class="row" style="margin-top: 30px; margin-left: 15px;margin: 15px 0;margin-top: 60px;">
                     <div class="col-md-3">
                         <p>Vận chuyển</p>
@@ -74,7 +79,7 @@
 
                 <div class="row" style="margin-top: 50px;">
                     <div class="col-md-4" style="padding: 0; margin-left: 25px;">
-                        <button class="btn btn-danger"><i class="fas fa-cart-arrow-down" style="color: #ffffff;"></i> <span style="font-size: 20px;">Thêm Vào Giỏ Hàng</span></button>
+                        <button class="btn btn-danger"><a href="/WebBanGiay_PTTKHTTT/Cart/Default/<?php echo $data['product'][0]['MaSP']."/".$data['product'][0]['TenSP']?>" style="text-decoration: none;color:#fff;"><i class="fas fa-cart-arrow-down" style="color: #ffffff;"></i> <span style="font-size: 20px;">Thêm Vào Giỏ Hàng</span></a></button>
                     </div>
                     <div class="col-md-5" style="padding: 0;margin-left: 10px;">
                         <button class="btn btn-success" style="font-size: 20px;">Mua Ngay</button>

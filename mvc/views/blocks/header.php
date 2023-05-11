@@ -36,54 +36,11 @@
                 </ul>
             </li>
             <li style="position: relative;margin-top: 10px;">
-                <a style="cursor: pointer;padding: 0;font-size: 20px;position: relative;" id="cart-icon">
+                <a style="cursor: pointer;padding: 0;font-size: 20px;position: relative;" id="cart-icon" href="/WebBanGiay_PTTKHTTT/Cart/MiniCart">
                     <i class="fas fa-shopping-cart" style="color: #ffffff;"></i>
                     <div style="font-size: 15px; color: #f26202;position: absolute;top: -10px;right: -5px;display:none">5</div>
                 </a>
                 <div id="cart" style="width: 400px; background-color: #fff; position: absolute; top: 45px; right: -20px;display: none;">
-                    <i class="fas fa-caret-up" style="color: #ffffff;font-size: 50px; position: absolute; top: -26px; right: 15px;"></i>
-                    <div style="color: #ccc; font-size: 16px;padding: 10px;">Sản phẩm Mới Thêm</div>
-                    <div class="row">
-                        <div class="col-md-3" style="margin: 10px;">
-                            <img src="/WebBanGiay_PTTKHTTT/public/img/product/adidas/Adidas Pureboost Jet Women GW9146.jpg" alt="" style="width: 50px;" class="img-thumbnail">
-                        </div>
-                        <div class="col-md-5" style="margin-top: 15px;">
-                            <p>Adidas Pureboost Jet Women GW9146</p>
-                        </div>
-                        <div class="col-md-3" style="margin-top: 15px;">
-                            <p style="color: #f26202;">300.000đ</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3" style="margin: 10px;">
-                            <img src="/WebBanGiay_PTTKHTTT/public/img/product/adidas/Adidas Pureboost Jet Women GW9146.jpg" alt="" style="width: 50px;" class="img-thumbnail">
-                        </div>
-                        <div class="col-md-5" style="margin-top: 15px;">
-                            <p>Adidas Pureboost Jet Women GW9146</p>
-                        </div>
-                        <div class="col-md-3" style="margin-top: 15px;">
-                            <p style="color: #f26202;">300.000đ</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3" style="margin: 10px;">
-                            <img src="/WebBanGiay_PTTKHTTT/public/img/product/adidas/Adidas Pureboost Jet Women GW9146.jpg" alt="" style="width: 50px;" class="img-thumbnail">
-                        </div>
-                        <div class="col-md-5" style="margin-top: 15px;">
-                            <p>Adidas Pureboost Jet Women GW9146</p>
-                        </div>
-                        <div class="col-md-3" style="margin-top: 15px;">
-                            <p style="color: #f26202;">300.000đ</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4" style="font-size: 15px;padding: 10px;margin-left: 20px;">2 sản phẩm khác</div>
-                        <div class="col-md-7" style="text-align: right;">
-                            <button class="btn btn-danger">
-                                <a href="/WebBanGiay_PTTKHTTT/Products/Cart" style="text-decoration: none;color:#fff;">Xem Giỏ Hàng</a>
-                            </button>
-                        </div>
-                    </div>
 
                 </div>
             </li>
@@ -100,3 +57,12 @@
         </form>
     </div>
 </nav>
+<script>
+    $(document).ready(function() {
+        $("a#cart-icon").click(function() {
+            var url = this.href;
+            $("div#cart").load(url);
+            return false;
+        })
+    });
+</script>

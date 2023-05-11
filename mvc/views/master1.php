@@ -13,13 +13,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="/WebBanGiay_PTTKHTTT/public/js/main.js"></script>
     <link rel="stylesheet" href="/WebBanGiay_PTTKHTTT//public//css//style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="header">
         <?php require_once "./mvc/views/blocks/header.php"; ?>
     </div>
-    <div class="modal fade" id="myProfile_modal" role="dialog">
+    <div class="modal fade" id="myProfile_modal" role="dialog" style="z-index:100000">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

@@ -1,9 +1,5 @@
 /* Header */
 
-h3 {
-    color: red;
-}
-
 #header {
     position: sticky;
     top: 0;
@@ -108,7 +104,7 @@ div.product>a div.product-item {
 
 div.product>a img {
     width: 100%;
-    height: auto;
+    height: 350px;
     left: 1px;
 }
 

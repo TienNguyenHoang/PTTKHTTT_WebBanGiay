@@ -1,26 +1,91 @@
 <style>
     .list-group-item.active {
-    background-color: #ffffff;
-    color: red;
-}
+        background-color: #ffffff;
+    }
 
-.list-group-item:active {
-    border: none;
-    background-color: #ffffff;
-    color: red;
-}
+    .list-group-item.active:hover {
+        background-color: #ffffff;
+    }
 
-.list-group-item:hover {
-    color: red;
-}
+    .list-group-item:active {
+        background-color: #ffffff;
 
-.list-group-item.active::before {
-    content: '▶';
-    display: inline-block;
-    font-size: 15px;
-    margin-right: 5px;
-}
+    }
+
+    .list-group-item.active>a {
+        color: red;
+    }
+
+    .list-group-item {
+        border: none;
+        cursor: pointer;
+    }
+
+    .list-group-item>a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .list-group-item:hover {
+        background-color: #f3f7fa;
+    }
+
+    .list-group-item:hover>a {
+        color: red;
+    }
+
+    .list-group-item.active::before {
+        content: '▶';
+        color: red;
+        display: inline-block;
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    .pagination.pager>li>a {
+        color: #000;
+    }
+
+    .pagination.pager>li.active:hover>a {
+        cursor: pointer;
+    }
+
+    .pagination.pager>li.active>a {
+        color: #ffffff;
+        background-color: red;
+        border: none;
+    }
 </style>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const list_group_item = document.querySelectorAll('.list-group-item');
+        list_group_item.forEach(element => {
+            element.onclick = () => {
+                const list_group = document.querySelector('.list-group');
+                const list_group_item_active = list_group.querySelector('.active');
+                list_group_item_active.classList.remove('active');
+                element.classList.add('active');
+            }
+        })
+        const pagination_item = document.querySelectorAll('.pagination-item');
+        pagination_item.forEach(element => {
+            element.onclick = () => {
+                const pager = document.querySelector('.pager');
+                const page_group_item_active = pager.querySelector('.pagination-item.active');
+                page_group_item_active.classList.remove('active');
+                element.classList.add('active');
+            }
+        });
+        $(document).ready(function() {
+            $("li.list-group-item").click(function() {
+                var url = this.firstElementChild.getAttribute('href');
+                $("div.allProduct").load(url);
+                return false;
+            })
+        })
+
+    });
+</script>
 <div class="container-fluid" style="background-image: linear-gradient(to right top,rgba(0,0,0,0.8) 85%,rgba(75, 70, 70, 0.411)), url(/WebBanGiay_PTTKHTTT/public/img/introduce/introduce_background.jpg); background-size: cover;background-position: center;background-attachment: fixed;">
     <div class="container" style="height: 200px;margin-top: 0;">
         <div style="color: #ffffff;text-align: center;">
@@ -33,16 +98,13 @@
     <div class="col-md-2" style="padding:20px;">
         <div class="tab">
             <div style="background-color:#ffffff;font-size:18px;font-weight:bold;padding:10px;margin-bottom:7px"><i class="fas fa-list" style="margin-right: 10px;"></i>Danh Mục</div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">Tất cả</a>
-                <a href="#" class="list-group-item">nike</a>
-                <a href="#" class="list-group-item">adidas</a>
-                <a href="#" class="list-group-item">puma</a>
-                <a href="#" class="list-group-item">converse</a>
-                <a href="#" class="list-group-item">vans</a>
-            </div>
+            <ul class="list-group" style="list-style:none">
+                <li class="list-group-item active"><a href="/WebBanGiay_PTTKHTTT/Products/AllProduct2/All/1">Tất cả</a></li>
+                <?php foreach ($data['category'] as $category) { ?>
+                    <li class="list-group-item"><a href="/WebBanGiay_PTTKHTTT/Products/AllProduct2/<?php echo $category['TenHang'] ?>/1"><?php echo $category['TenHang'] ?></a></li>
+                <?php } ?>
+            </ul>
         </div>
-
     </div>
     <div class="col-md-10">
         <div class="all-content">
@@ -58,31 +120,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="product">
-                    <?php
-                    foreach ($data['product'] as $product) { ?>
-                        <a href="/WebBanGiay_PTTKHTTT/Products/ProductDetails/<? echo $product['TenSP']; ?>" style="text-decoration: none;">
-                            <div class="product-item">
-                                <img src="/WebBanGiay_PTTKHTTT/public/img/product/<?php echo $product['HinhAnh'] ?>" alt="" class="product-img img">
-                                <div class="product-info" align="center">
-                                    <h5 class="product-name"><?php echo $product['TenSP']; ?></h5>
-                                    <div class="product-price">
-                                        <?php echo $product['Gia']; ?></div>
-                                </div>
-                            </div>
-                        </a>
-                    <?php } ?>
-                </div>
-                <div style="text-align: center;">
-                    <ul class="pagination pager" style="margin: 0;">
-                        <li class="previous"><a href="#" style="margin-right: 15px;">Previous</a></li>
-                        <li class="active"><a href="#" style="margin: 0 5px;">1</a></li>
-                        <li><a href="#" style="margin: 0 5px;">2</a></li>
-                        <li><a href="#" style="margin: 0 5px;">3</a></li>
-                        <li><a href="#" style="margin: 0 5px;">4</a></li>
-                        <li><a href="#" style="margin: 0 5px;">5</a></li>
-                        <li class="next"><a href="#" style="margin-left: 15px;">Next</a></li>
-                    </ul>
+                <div class="allProduct">
+                    <?php require_once "./mvc/views/pages/allProduct.php" ?>
+                    <?php require_once "./mvc/views/pages/pagination.php" ?>
                 </div>
             </div>
         </div>

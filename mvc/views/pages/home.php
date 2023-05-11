@@ -65,14 +65,15 @@
     <div class="home-products">
         <div class="product">
             <?php
-            foreach ($data['newProducts'] as $product) { ?>
+            foreach ($data['newProducts'] as $product) { 
+                $money = number_format($product['Gia'], 0, ',', '.');?>
                 <a href="/WebBanGiay_PTTKHTTT/Products/ProductDetails/<?echo $product['TenSP'];?>" style="text-decoration: none;">
                     <div class="product-item">
                         <img src="/WebBanGiay_PTTKHTTT/public/img/product/<?php echo $product['HinhAnh'] ?>" alt="" class="product-img img">
                         <div class="product-info" align="center">
-                            <h5 class="product-name"><?php echo $product['TenSP']; ?></h5>
+                            <h5 style="height: 30px;" class="product-name"><?php echo $product['TenSP']; ?></h5>
                             <div class="product-price">
-                                <?php echo $product['Gia']; ?></div>
+                                <?php echo $money."<small style='margin-left:3px'>đ</small>"; ?></div>
                         </div>
                     </div>
                 </a>
@@ -90,14 +91,15 @@
     <div class="home-products">
         <div class="product">
         <?php
-            foreach ($data['hotSellProducts'] as $product) { ?>
+            foreach ($data['hotSellProducts'] as $product) { 
+                $money = number_format($product['Gia'], 0, ',', '.');?>
                 <a href="/WebBanGiay_PTTKHTTT/Products/ProductDetails" style="text-decoration: none;">
                     <div class="product-item">
                         <img src="/WebBanGiay_PTTKHTTT/public/img/product/<?php echo $product['HinhAnh'] ?>" alt="" class="product-img img">
                         <div class="product-info" align="center">
                             <h5 class="product-name"><?php echo $product['TenSP']; ?></h5>
                             <div class="product-price">
-                                <?php echo $product['Gia']; ?></div>
+                                <?php echo $money."<small style='margin-left:3px'>đ</small>"; ?></div>
                         </div>
                     </div>
                 </a>
